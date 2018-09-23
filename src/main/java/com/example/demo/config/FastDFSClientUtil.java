@@ -76,16 +76,18 @@ public class FastDFSClientUtil {
      * @param fileUrl 文件访问地址
      * @return
      */
-    public void deleteFile(String fileUrl) {
+    public boolean deleteFile(String fileUrl) {
         if (StringUtils.isEmpty(fileUrl)) {
-            return;
+            return false;
         }
         try {
             StorePath storePath = StorePath.praseFromUrl(fileUrl);
             storageClient.deleteFile(storePath.getGroup(), storePath.getPath());
         } catch (FdfsUnsupportStorePathException e) {
             logger.warn(e.getMessage());
+            return false;
         }
+        return true;
     }
 
     /**

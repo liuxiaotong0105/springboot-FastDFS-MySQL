@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.FdfsMapper">
+
+    <select id="queryFdfs" resultType="com.jk.model.Fdfs">
+        select * from t_fastdfs
+    </select>
+
+
+    <insert id="addFdfs" parameterType="com.jk.model.Fdfs">
+        insert into t_fastdfs (fdfsHttp,fdfsUrl) VALUE
+        (#{fdfsHttp},#{fdfsUrl})
+    </insert>
+
+    <delete id="deleteFdfs" parameterType="string">
+        delete from t_fastdfs where fdfsId = #{fdfsId}
+    </delete>
+
+  <!--
+
+
+    <insert id="addUser">
+        insert into t_user (id,loginNumber,name,password,roleid) VALUE
+        (#{id},#{loginNumber},#{name},#{password},#{roleid})
+    </insert>
+
+
+    <select id="queryUserById" resultType="com.jk.model.User" parameterType="string">
+        select * from t_user where id = #{id}
+    </select>
+
+    <update id="updateUser" parameterType="com.jk.model.User">
+        update t_user set
+        loginNumber = #{loginNumber},
+        name = #{name},
+        password = #{password},
+        roleid = #{roleid}
+        where id = #{id}
+    </update>-->
+</mapper>
+	

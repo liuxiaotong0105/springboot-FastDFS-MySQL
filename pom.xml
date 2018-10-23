@@ -44,11 +44,34 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
+		<!--fastdfs-->
 		<dependency>
 		    <groupId>com.github.tobato</groupId>
 		    <artifactId>fastdfs-client</artifactId>
 		    <version>1.26.2</version>
+		</dependency>
+
+		<!--页面-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.nekohtml</groupId>
+			<artifactId>nekohtml</artifactId>
+			<version>1.9.22</version>
+		</dependency>
+
+    	<!--数据库-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.1.1</version>
 		</dependency>
 
 
@@ -59,7 +82,15 @@
 		</dependency>
 	</dependencies>
 
-	<build>
+	<build>	<resources>
+		<resource>
+			<directory>src/main/java</directory>
+			<includes>
+				<include>**/*.xml</include>
+			</includes>
+		</resource>
+	</resources>
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

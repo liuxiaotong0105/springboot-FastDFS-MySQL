@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.jk;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

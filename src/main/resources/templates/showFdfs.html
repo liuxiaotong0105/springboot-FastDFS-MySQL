@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>FASTDFS</title>
+
+</head>
+<body>
+<a href="../fdfs/toAddFdfs">新增</a>
+<table border="1">
+    <tr>
+        <td>编号</td>
+        <td>网关</td>
+        <td>位置</td>
+        <td>操作</td>
+    </tr>
+    <tbody id = "showFdfs"></tbody>
+
+</table>
+
+<script src="../jquery.min.js"></script>
+<script >
+   $(function(){
+       show()
+   })
+    function show(){
+        $.ajax({
+            url:"../fdfs/queryFdfs",
+            type:'post',
+            dataType:'json',
+            success:function (data) {
+                console.log(data)
+                var fdfs = "";
+                for (var i = 0; i < data.length ; i++) {
+                    fdfs += '<tr><td>'+data[i].fdfsId+'</td>'+
+                            '<td>'+data[i].fdfsHttp+'</td>'+
+                            '<td>'+data[i].fdfsUrl+'</td>'+
+                            '<td>' +
+                            '<a href="javascript:showFdfs(\''+data[i].fdfsHttp+'\',\''+data[i].fdfsUrl+'\')">查看</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
+                            '<a href="javascript:deleteFdfs(\''+data[i].fdfsUrl+'\',\''+data[i].fdfsId+'\')">删除</a>' +
+                            '</td></tr>';
+                }
+                $("#showFdfs").html(fdfs);
+            }
+        })
+    }
+    function showFdfs(http,url){
+        var urls = http+"/"+url;
+        $.ajax({
+            url:"/fdfs/openExplorer",
+            data:{urls:urls},
+            success:function () {
+            }
+        })
+    }
+
+    function deleteFdfs(url,fastId){
+       $.ajax({
+           url:"/fdfs/deleteFdfs",
+           data:{url:url,fastId:fastId},
+           success:function (data) {
+               if(data){
+                   show()
+               }else{
+                   alert("系统错误！")
+               }
+           }
+       })
+    }
+
+
+</script>
+
+</body>
+</html>

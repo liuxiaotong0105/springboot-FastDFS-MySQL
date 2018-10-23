@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.jk.config;
 
 import com.github.tobato.fastdfs.domain.FileInfo;
 import com.github.tobato.fastdfs.domain.StorePath;
@@ -19,8 +19,13 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 
 /**
- * <p>Description: FastDFS文件上传下载工具类</p>
- * <p>Copyright: Copyright (c) 2016</p>
+ * <pre>项目名称：springboot-fastdfs
+ * 类名称：Fdfs
+ * 类描述：工具类
+ * 创建人：刘晓彤
+ * 创建时间：2018/10/22  19:53
+ * 手机号：18511777907&16619767907
+ * 备注：生命不息，车轮不止
  */
 @Component
 public class FastDFSClientUtil {
@@ -101,6 +106,9 @@ public class FastDFSClientUtil {
         return fileInfo;
     }
 
+
+
 }
+
 
 
